@@ -1,0 +1,16 @@
+# action.yml
+name: 'Yocto Check Layer Action'
+description: 'Yocto-Check-Layer'
+inputs:
+  layer:  # id of input
+    description: 'Layer to check'
+    required: true
+    default: 'meta-opendds'
+outputs:
+  time: # id of output
+    description: 'The time the script was run'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.layer }}
