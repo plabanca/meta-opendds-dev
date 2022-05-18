@@ -20,9 +20,10 @@ jobs:
     - name: Run yocto-check-layer
       run: |
         docker run --rm -v "$GITHUB_WORKSPACE:/work:ro" \
-          --env "BASE_REF=$GITHUB_BASE_REF" \
-          "yocto-builder-${{ github.event.number }}" \
-          /entrypoint-yocto-check-layer.sh
+        --env "BASE_REF=$GITHUB_BASE_REF" \
+        --env "YOCTO_RELEASE=kirkstone" \
+        "yocto-builder-${{ github.event.number }}" \
+        /entrypoint-yocto-check-layer.sh
     - name: Cleanup temporary docker image
       uses: ./.github/actions/docker-clean-image
       with:

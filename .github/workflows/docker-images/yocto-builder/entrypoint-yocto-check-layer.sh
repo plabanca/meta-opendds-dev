@@ -7,6 +7,8 @@ set -ex
 
 GIT_REPO_PATH="/work"
 
+[ -n "$YOCTO_RELEASE" ] ||
+    error "Yocto release branch is needed. Make sure that is set in YOCTO_RELEASE."
 [ -n "$BASE_REF" ] ||
     error "Target branch is needed. Make sure that is set in BASE_REF."
 [ -d "$GIT_REPO_PATH/.git" ] ||
@@ -19,8 +21,8 @@ REPOS=" \
     git://git.yoctoproject.org/poky.git \
 "
 for repo in $REPOS; do
-    log "Cloning $repo on branch $BASE_REF..."
-    git clone --depth 1 --branch "$BASE_REF" "$repo"
+    log "Cloning $repo on branch $YOCTO_RELEASE..."
+    git clone --depth 1 --branch "$YOCTO_RELEASE" "$repo"
 done
 
 # shellcheck disable=SC1091,SC2240
