@@ -1,7 +1,7 @@
 name: Yocto Compatible
 
 on:
-  pull_request:
+  workflow_dispatch:
 
 jobs:
   yocto-check-layer:
