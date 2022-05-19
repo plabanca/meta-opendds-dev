@@ -2,6 +2,8 @@ name: Yocto Compatible
 
 on:
   workflow_dispatch:
+    inputs:
+      id: test
 
 jobs:
   yocto-check-layer:
