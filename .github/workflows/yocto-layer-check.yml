@@ -19,10 +19,8 @@ jobs:
           libegl1-mesa libsdl1.2-dev pylint3 xterm python3-subunit \
           mesa-common-dev zstd liblz4-tool
       - name: Run script
-              run: ./.github/scripts/yocto-check-layer.sh
-              shell: bash
-              env:
-                YOCTO_RELEASE: kirkstone
+          run:|
+            "${GITHUB_WORKSPACE}/.github/scripts/yocto-check-layer.sh"
 
 
 .
