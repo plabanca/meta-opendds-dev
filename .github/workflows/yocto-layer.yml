@@ -1,8 +1,9 @@
 name: Yocto Compatible
 
 on:
-  pull_request:
-    types: [opened, reopened]
+  # pull_request:
+      # types: [opened, reopened]
+  workflow_dispatch:
 jobs:
   yocto-check-layer:
     name: Validate with yocto-check-layer
