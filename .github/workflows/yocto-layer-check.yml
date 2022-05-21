@@ -1,4 +1,4 @@
-name: Yocto Check Layer
+name: Yocto Check Layer Workflow
 on: 
   pull_request:
     types: [opened, reopened]
@@ -8,8 +8,6 @@ jobs:
   yocto-check-layer:
     runs-on: ubuntu-20.04
     steps:
-      - name: Check out meta-opendds repository code
-        uses: actions/checkout@v3
       - name: Install yocto build dependancies
         run: |
           sudo apt-get update
@@ -19,6 +17,9 @@ jobs:
           libegl1-mesa libsdl1.2-dev pylint3 xterm python3-subunit \
           mesa-common-dev zstd liblz4-tool
           
-      - name: Run yocto check layer bash script
+      - name: Check out meta-opendds repo
+        uses: actions/checkout@v3
+        
+      - name: Run yocto check layer script
         run: |
           "${GITHUB_WORKSPACE}/.github/scripts/yocto-check-layer.sh"
