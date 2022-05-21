@@ -5,10 +5,10 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  yocto-check-layer:
     runs-on: ubuntu-20.04
     steps:
-      - name: Check out repository code
+      - name: Check out meta-opendds repository code
         uses: actions/checkout@v3
       - name: Install yocto build dependancies
         run: |
@@ -19,6 +19,6 @@ jobs:
           libegl1-mesa libsdl1.2-dev pylint3 xterm python3-subunit \
           mesa-common-dev zstd liblz4-tool
           
-      - name: Run script
+      - name: Run yocto check layer bash script
         run: |
           "${GITHUB_WORKSPACE}/.github/scripts/yocto-check-layer.sh"
