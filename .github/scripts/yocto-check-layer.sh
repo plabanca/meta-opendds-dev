@@ -1,8 +1,9 @@
 #!/bin/bash
 
-echo "Yocto Release Branch $YOCTO_RELEASE"
-echo "Temp Dir: $RUNNER_TEMP"
-echo "Workspace: $GITHUB_WORKSPACE"
+if [[ -z "${YOCTO_RELEASE}" ]]; then
+  export YOCTO_RELEASE="kirkstone"
+fi
+
 cd $RUNNER_TEMP
 git clone --depth 1 --branch $YOCTO_RELEASE https://git.yoctoproject.org/git/poky 
 . ./poky/oe-init-build-env build
