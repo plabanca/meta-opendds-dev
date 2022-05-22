@@ -4,6 +4,9 @@ on:
     types: [opened, reopened]
   workflow_dispatch:
 
+env:
+  YOCTO_RELEASE: kirkstone
+
 jobs:
   yocto-check-layer:
     runs-on: ubuntu-20.04
