@@ -1,7 +1,9 @@
 #!/bin/bash
 
+export DEFAULT_YOCTO_BRANCH="master"
+
 if [[ -z "${YOCTO_RELEASE}" ]]; then
-  export YOCTO_RELEASE="kirkstone"
+  export YOCTO_RELEASE=$DEFAULT_YOCTO_BRANCH
 fi
 
 cd $RUNNER_TEMP
