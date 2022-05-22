@@ -1,4 +1,4 @@
-name: Yocto Check Layer Workflow
+name: Run Yocto Check Layer
 on: 
   pull_request:
     types: [opened, reopened]
