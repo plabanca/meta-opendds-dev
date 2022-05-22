@@ -1,6 +1,5 @@
 #!/bin/bash
 
-export YOCTO_RELEASE=kirkstone
 echo "Yocto Release Branch $YOCTO_RELEASE"
 echo "Temp Dir: $RUNNER_TEMP"
 echo "Workspace: $GITHUB_WORKSPACE"
